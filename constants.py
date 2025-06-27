@@ -1,3 +1,6 @@
+import pygame
+pygame.font.init()
+
 SCREEN_WIDTH = 1280
 SCREEN_HEIGHT = 720
 
@@ -13,3 +16,8 @@ PLAYER_SHOT_SPEED = 500
 PLAYER_SHOOT_COOLDOWN = 0.3
 
 SHOT_RADIUS = 5
+
+SHIELD_RADIUS = 35
+
+FONT = pygame.font.SysFont("dejavusans", 100)
+SCORE_FONT = pygame.font.SysFont(None, 30)

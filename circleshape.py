@@ -1,5 +1,6 @@
 import pygame
 import math
+import constants
 
 # Base class for game objects
 class CircleShape(pygame.sprite.Sprite):
@@ -22,9 +23,12 @@ class CircleShape(pygame.sprite.Sprite):
         # sub-classes must override
         pass
     
-    def collisions(self, other_circle):
+    def collisions(self, other_circle, shield=False):
         dist = math.hypot(other_circle.position.x - self.position.x, other_circle.position.y - self.position.y)
-        if int(dist) <= self.radius + other_circle.radius:
+        if shield:
+            if int(dist) <= 35 + other_circle.radius:
+                return True
+        elif int(dist) <= (self.radius -3) + other_circle.radius:
             return True
         else:
             return False
